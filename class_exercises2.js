@@ -12,6 +12,15 @@ If the guess is the answer, you will say "You win!"
 BONUS
 if the guess is within a range of 10, aside from too big or too small, you will also say "Close!"
 EG answer is 15, and the user guesses between 5-25 like 22 -> "Too Big!" "Close!"
+ans    guess
+15    18
+too big
+guess - answer
+
+ans   guess
+15    5
+too small
+answer - guess
 
 if the guess is within a range of 5, instead of "Close!", it will say "Almost there!"
 
@@ -48,45 +57,54 @@ This means you can close the game with both "quit" and losing
 
 
 //determine a proper parameter variable name
-function GuessingGame(guess) {
-  answer = 25;
+function GuessingGame(answer, guess) {
+  if (guess > answer) {
+    console.log("Guess lower!!");
+    if (guess - answer <= 5) {
+      console.log("Almost there!");
+    } else if (guess - answer <= 10) {
+      console.log("So close!");
+    }
 
-  if(guess === answer){
-    console.log("You win! You are set for life!!!");
+  } else if (guess < answer) {
+    console.log("Guess higher!!");
+    if (answer - guess  <=5) {
+      console.log("Almost there!");
+    }else if (answer - guess  <=10) {
+      console.log("So close!");
+    }
+  } else {
+    console.log("You are set for life!!!");
   }
-  else if(guess >= 20 && guess < answer){
-    console.log("So close! Guess again!");
-  }
-  else if(guess <= 30 && guess > answer){
-    console.log("So close! Guess again!");
-  }
-  else if(guess <20){
-    console.log("Guess higher!");
-  }
-  else if(guess >30){
-    console.log("Guess lower!");
-  }
-  
 }
 
-//determine a proper question to ask and the proper variable name for the answer
 
+//determine a proper question to ask and the proper variable name for the answer
+readline.question("Number of gold bars inside the chest. ", (_variableNameAnswer) => {
+  const numberOfGuessesAllowed = 3;
+  let numberOfGuessesMade = 0;
 
   //make an infinite recall for guessing question
   function StartGame() {
 
     //determine a proper question to ask and the proper variable name for the user to guess
-    readline.question("What is your guess? ", (guess) => {
+    readline.question("How many gold bars are inside the chest? ", (_variableNameGuess) => {
       
-     GuessingGame(Number(guess));
+     numberOfGuessesMade++;
 
-      if (guess === "quit") {
+      GuessingGame(_variableNameAnswer, _variableNameGuess);
+      
+      if(numberOfGuessesMade >= numberOfGuessesAllowed){
+        console.log("You reached the number of allowes guesses!!");
+        readline.close();
+      } else if (_variableNameGuess === "quit") {
         readline.close();
       } else {
         StartGame();
-      }
+      }  
     });
   }
-
   StartGame();
+});
 
+// reviewed by bruna
