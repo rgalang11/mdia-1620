@@ -16,7 +16,7 @@ CHALLENGE (SAVE FOR LATER)
 */
 
 /** PLANNING
- * Scenario: Simple password checking website
+ * Scenario: Simple password checking system. A user will set and enter a password. The system will verify if the user entered a correct password in the 2nd input.
  * 
  * User will set the password to input 1
  * User will enter the password to input 2
@@ -26,6 +26,7 @@ CHALLENGE (SAVE FOR LATER)
  * If user inputs "forgot", prompt Here is a hint.
  * If user inputs "reset", prompt Let's reset your account
  * 
+ * if the user sets the password to forgot or reset, prompt "Please use other password"
  */
 
 
@@ -62,7 +63,7 @@ function StartApp(){
         readline.close();
       } else if (_input2 != _input1) {
         if (_input2 === "forgot") {
-          console.log("Here's a hint! Password starts with ", _input1[0]);
+          console.log("Here's a hint! Password starts with ", _input1[0], " and ends with ", _input1[_input1.length-1]);
           readline.close();
         } else if (_input2 === "reset") {
             console.log("Let's reset your password!");
