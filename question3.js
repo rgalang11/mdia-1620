@@ -21,7 +21,8 @@ CHALLENGE (SAVE FOR LAST):
 */
 
 /** PLANNING:
- * Scenario: Lunch money managemement system for students
+ * Scenario: Lunch money managemement system for students. 
+ * It is lunch time, students will buy their lunch from the cafeteria. Lunch lady will input the students information in the lunch management system.
  * 
  * Enter the student name to input1
  * Enter the students lunch money amount to input2
