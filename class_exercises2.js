@@ -58,6 +58,7 @@ This means you can close the game with both "quit" and losing
 
 //determine a proper parameter variable name
 function GuessingGame(answer, guess) {
+  
   if (guess > answer) {
     console.log("Guess lower!!");
     if (guess - answer <= 5) {
@@ -94,9 +95,12 @@ readline.question("Number of gold bars inside the chest. ", (_variableNameAnswer
 
       GuessingGame(_variableNameAnswer, _variableNameGuess);
       
-      if(numberOfGuessesMade >= numberOfGuessesAllowed){
-        console.log("You reached the number of allowes guesses!!");
+      if(numberOfGuessesMade > numberOfGuessesAllowed){
+        console.log("You reached the number of allowed guesses!!");
         readline.close();
+      } else if (_variableNameGuess === _variableNameAnswer) {
+        console.log("Congrats!!");
+        readline.close(); // 101-103 added to close if guessed correctly.
       } else if (_variableNameGuess === "quit") {
         readline.close();
       } else {
