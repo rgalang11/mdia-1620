@@ -37,7 +37,7 @@ function passwordCheck(paramVariable1, paramVariable2){
   if (inp2 === inp1) {
     console.log("Access Granted!");
     if (inp2 === "forgot" || inp2 === "reset") {
-      console.log("Please use other password.");
+      console.log("Please use other password. Chosen password may cause system glitch.");
     }
   } else if (inp2 != inp1) {
     console.log("Access Denied");
@@ -59,18 +59,15 @@ function StartApp(){
         //StartApp();
         readline.close();
       } else if (_input2 === _input1) {
-        console.log("Password entered is correct!");
         readline.close();
       } else if (_input2 != _input1) {
         if (_input2 === "forgot") {
           console.log("Here's a hint! Password starts with ", _input1[0]);
           readline.close();
-        } 
-          //readline.close();
-          if (_input2 === "reset") {
+        } else if (_input2 === "reset") {
             console.log("Let's reset your password!");
             StartApp();
-          }
+        }
       }  
     });
   });
