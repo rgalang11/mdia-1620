@@ -36,6 +36,9 @@ function passwordCheck(paramVariable1, paramVariable2){
 
   if (inp2 === inp1) {
     console.log("Access Granted!");
+    if (inp2 === "forgot" || inp2 === "reset") {
+      console.log("Please use other password.");
+    }
   } else if (inp2 != inp1) {
     console.log("Access Denied");
   } 
