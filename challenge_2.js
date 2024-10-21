@@ -51,12 +51,11 @@ function WordGuess(paramSecretWord, paramGuess) {
         console.log("Almost Correct!!");
       }
     }
-
   }
 }
 
 //determine a proper question to ask and the proper variable name for the answer
-function AskSecretWord(){
+function AskSecretWord(){ 
   readline.question("Enter the secret word: ", (_variableNameSecret) => {
 
     if (_variableNameSecret.length < 5 || _variableNameSecret.length > 10) {
@@ -81,15 +80,12 @@ function AskSecretWord(){
           }
         });
       }
-    
-
-    
     //make an infinite recall for guessing question
     StartGame();
   });
 }
  
-AskSecretWord();
+AskSecretWord(); // calling the function
   
 
 
