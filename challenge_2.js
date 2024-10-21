@@ -45,7 +45,6 @@ function WordGuess(paramSecretWord, paramGuess) {
   if (guess === secret) {
     console.log("Correct!!");
   } else {
-    console.log("Incorrect!!");
     if (guess[0] === secret[0]) {
       console.log("You got the first letter!");
       if (secret[secret.length-1] === guess[guess.length-1]) {
@@ -57,27 +56,40 @@ function WordGuess(paramSecretWord, paramGuess) {
 }
 
 //determine a proper question to ask and the proper variable name for the answer
-readline.question("Enter the secret word: ", (_variableNameSecret) => {
+function AskSecretWord(){
+  readline.question("Enter the secret word: ", (_variableNameSecret) => {
 
+    if (_variableNameSecret.length < 5 || _variableNameSecret.length > 10) {
+      console.log("Please enter a secret word with a minimun of 5 letters and maximum of 10 letters!");
+      AskSecretWord();
+    } 
+      function StartGame() {
   
-  if (_variableNameSecret.length < 5 && _variableNameSecret.length > 10) {
-    console.log("Please enter a secret word with a minimun of 5 letters and maximum of 10 letters!");
-  } 
-  //make an infinite recall for guessing question
-  function StartGame() {
-
-    //determine a proper question to ask and the proper variable name for the user to guess
-    readline.question("Guess the secret word: ", (_variableNameGuess) => {
-
-      //call your function here
-      WordGuess(_variableNameSecret, _variableNameGuess);
-      if (_variableNameGuess === "quit") {
-        readline.close();
-      } else {
-        StartGame();
+        //determine a proper question to ask and the proper variable name for the user to guess
+        readline.question("Guess the secret word: ", (_variableNameGuess) => {
+    
+          //call your function here
+          WordGuess(_variableNameSecret, _variableNameGuess);
+    
+          if (_variableNameGuess === "quit") {
+            readline.close();
+          } else if (_variableNameGuess === _variableNameSecret) {
+            console.log("Congratulations!");
+            readline.close();
+          } else {
+            StartGame();
+          }
+        });
       }
-    });
-  }
+    
 
-  StartGame();
-});
+    
+    //make an infinite recall for guessing question
+    StartGame();
+  });
+}
+ 
+AskSecretWord();
+  
+
+
