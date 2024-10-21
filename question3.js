@@ -28,8 +28,12 @@ CHALLENGE (SAVE FOR LAST):
  * Enter the lunch item name to input 3
  * Enter the lunch item cost to input 4
  * 
- * If lunch money >= lunch item cost, prompt student name purchased lunch item name
- * if lunch money < lunch item cost, prompt student name does not have sufficient fund to buy lunch item name
+ * If lunch money >= lunch item cost, prompt student name purchased lunch item name + remaining balance
+ * if lunch money < lunch item cost, prompt student name does not have sufficient fund to buy lunch item name + amount to add
+ * 
+ * If remaining balance <5, prompt Warning low balance
+ * If balance is 0, prompt Please add more funds
+ * 
  * 
  */
 
@@ -39,12 +43,19 @@ function lunchTime(paramVariable1, paramVariable2,paramVariable3, paramVariable4
   let studentMoney = paramVariable2;
   let lunchName = paramVariable3;
   let lunchCost = paramVariable4;
+  let balance = studentMoney - lunchCost;
+  let additionalFund = lunchCost - studentMoney;
   //write your code here
 
   if (studentMoney >= lunchCost) {
-    console.log(studentName, " purchased ", lunchName);
+    console.log(studentName, " purchased ", lunchName, ". Remaining balance: ", balance, ".");
+    if (balance < 5 && balance> 0) {
+      console.log("Warning! Low balance.");
+    } else if (balance === 0) {
+      console.log("Please add more funds!");
+    }
   } else if (studentMoney < lunchCost) {
-    console.log(studentName, " does not have sufficient fund to buy ", lunchName);
+    console.log(studentName, " does not have sufficient fund to buy ", lunchName , ". Need ", additionalFund , " more.");
   }
 }
 
