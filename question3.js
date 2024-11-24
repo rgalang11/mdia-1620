@@ -50,7 +50,7 @@ function lunchTime(paramVariable1, paramVariable2,paramVariable3, paramVariable4
 
   if (studentMoney >= lunchCost) {
     console.log(studentName, " purchased ", lunchName, ". Remaining balance: ", balance, ".");
-    if (balance < 5 && balance> 0) {
+    if (balance < 5 && balance > 0) { //should be OR
       console.log("Warning! Low balance.");
     } else if (balance === 0) {
       console.log("Please add more funds!");
