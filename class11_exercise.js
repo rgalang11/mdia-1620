@@ -130,3 +130,6 @@ function StartApp() {
 }
 
 StartApp();
+
+
+//everything seems right to me. Nice work! --Bruna
