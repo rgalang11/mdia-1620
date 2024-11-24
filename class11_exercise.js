@@ -108,19 +108,19 @@ function StartApp() {
         CheckBanned();
       } else if (_command === "allow add"){
         settings.addRegistry = !settings.addRegistry;
-        console.log(settings.addRegistry);
+        //console.log(settings.addRegistry);
         StartApp();
       } else if (_command === "allow check registry"){
         settings.checkRegistry = !settings.checkRegistry;
-        console.log(settings.checkRegistry);
+        //console.log(settings.checkRegistry);
         StartApp();
       } else if (_command === "allow ban"){
         settings.banPerson = !settings.banPerson;
-        console.log(settings.banPerson);
+        //console.log(settings.banPerson);
         StartApp();
       } else if (_command === "allow check banned"){
         settings.checkBans = !settings.checkBans;
-        console.log(settings.checkBans);
+        //console.log(settings.checkBans);
         StartApp();
       }
     } else {
