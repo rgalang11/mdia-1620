@@ -133,3 +133,7 @@ StartApp();
 
 
 //everything seems right to me. Nice work! --Bruna
+
+
+//items in an object are unique. can't be duplicated.
+//items in an array

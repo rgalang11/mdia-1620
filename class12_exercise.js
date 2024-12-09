@@ -218,9 +218,4 @@ function StartApp() {
   StartApp();
   
 
-
-  // code looks clean and current code are working --Bruna
-
-
-
   
