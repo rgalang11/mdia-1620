@@ -50,11 +50,6 @@ function addUserColor(){
 
   readline.question(`What color would you like to add? `, _color => {
     
-    // let colorAllowed = false;
-    
-    // for (let key in theme) {
-
-    // }
 
     for (let key in theme) {
       if (_color === key) {
@@ -92,11 +87,7 @@ function toggleThemeColor(){
         } else if (_color == "orange") {
           theme.orange = !theme.orange;
         }
-        console.log(theme.red);
-        console.log(theme.blue);
-        console.log(theme.green);
-        console.log(theme.yellow);
-        console.log(theme.orange);
+        console.log(`${_color} is set to ${theme[key]}`)
       }
     } 
     displayUserColors();
