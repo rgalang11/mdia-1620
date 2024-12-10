@@ -33,7 +33,8 @@ When VIP is not false, when the notify function is called, only the VIP will get
 let registry = [];
 let settings = {
   //alcohol setting goes here
-  allowDrink: false
+  allowDrink: false,
+  age: 19
 };
 
 //rename this to RegisterUser
@@ -80,6 +81,7 @@ function notifyAll(){
   }
 }
 
+
 function StartApp(){
   readline.question("What would you like to do?  ", _command=>{
     if(_command === "quit"){
@@ -88,8 +90,10 @@ function StartApp(){
       registerUser();
     } else if (_command === "toggle"){
       toggleAlcohol();
-    }  else if (_command === "notify"){
+    } else if (_command === "notify"){
       notifyAll();
+    } else if (_command === "change age"){
+      changeAge();
     } else {
       StartApp();
     }
